@@ -1,4 +1,5 @@
 package src.juegoDamas;
+import java.util.*;
 import src.jugador.VectorJugador;
 import src.tablero.Tablero;
 public class Principal {
@@ -6,15 +7,19 @@ public class Principal {
         Principal inicio=new Principal();
     }
     private VectorJugador vectorJugador=new VectorJugador();
-    private Tablero tablero=new Tablero();
     public Principal(){
+        Scanner scanner=new Scanner(System.in);
         vectorJugador.ingresarJugador();
-        vectorJugador.imprimirMensaje("\n\n\nEL JUEGO EMPIEZA");
-        vectorJugador.datosjugador();
-        vectorJugador.imprimirMensaje("\nSeleccione dos Jugadores\n");
-        vectorJugador.jugadoresSeleccionados();
-        tablero.pintarTablero(1,1,1);
-        
+        int op=0;
+        do{
+            vectorJugador.imprimirMensaje("\n\n\nEL JUEGO EMPIEZA");
+            vectorJugador.datosjugador();
+            vectorJugador.imprimirMensaje("\nSeleccione dos Jugadores\n");
+            vectorJugador.jugadoresSeleccionados();
+            vectorJugador.datosjugador();
+            vectorJugador.imprimirMensaje("\n\nPara volver a jugar ingrese cualquier numero excepto el 0\n");
+            op=scanner.nextInt();
+        }while(op!=0);
     }
     
 }
